@@ -2,12 +2,14 @@
 
 one:
   location: one
+  description: MyText
   date: 2020-04-14
-  departure_time: 2020-04-14 11:52:46
-  return_time: 2020-04-14 11:52:46
+  departure_time: 2020-04-14 14:14:28
+  return_time: 2020-04-14 14:14:28
 
 two:
   location: two
+  description: MyText
   date: 2020-04-14
-  departure_time: 2020-04-14 11:52:46
-  return_time: 2020-04-14 11:52:46
+  departure_time: 2020-04-14 14:14:28
+  return_time: 2020-04-14 14:14:28
