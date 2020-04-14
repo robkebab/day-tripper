@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-    before_action :hard_code_session
-    before_action :find_user, only: [:home, :show, :edit, :update]
+    before_action :find_user, only: [:home, :show, :edit, :update, :destroy]
 
     def home
     end
@@ -39,7 +38,8 @@ class UsersController < ApplicationController
     end
 
     def destroy
-
+        @user.destroy
+        redirect_to root_path
     end
 
     private

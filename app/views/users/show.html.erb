@@ -13,3 +13,7 @@
 <br />
 
 <%= link_to "Update Profile", edit_user_path(@user) %>
+<br /><br />
+<%= form_with url: user_path(@user), method: 'delete' do |f| %>
+    <%= f.submit "Delete Account" %>
+<% end %>
