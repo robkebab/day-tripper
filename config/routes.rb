@@ -1,8 +1,22 @@
 Rails.application.routes.draw do
-  resources :trips
-  resources :locations
-  resources :users
   get 'welcome/index'
+
+  #sessions 
+  get 'login', to: 'sessions#new', as: "login"
+  post "login", to: "sessions#create"
+  delete 'login', to: 'sessions#destroy', as: 'logout'
+
+  #trips
+  resources :trips
+
+  #locations
+  resources :locations
+
+  #users
+  get '/home', to: 'users#home'
+  get '/signup', to: 'users#new', as: 'signup'
+  resources :users, except: [:new]
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'welcome#index'
 end
