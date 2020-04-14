@@ -24,4 +24,8 @@ class User < ApplicationRecord
         trips << self.passenger_trips
         trips.flatten
     end
+
+    def trip_count
+        all_trips.count
+    end
 end
