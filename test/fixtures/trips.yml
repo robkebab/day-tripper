@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  location: one
+  date: 2020-04-14
+  departure_time: 2020-04-14 11:52:46
+  return_time: 2020-04-14 11:52:46
+
+two:
+  location: two
+  date: 2020-04-14
+  departure_time: 2020-04-14 11:52:46
+  return_time: 2020-04-14 11:52:46
