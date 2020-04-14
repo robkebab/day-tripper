@@ -7,3 +7,7 @@
     <%= trip.display %>
 <% end %>
 </ul>
+
+<%= form_with url: logout_path, method: 'delete' do |f| %>
+    <%= f.submit "logout" %>
+<% end %>
