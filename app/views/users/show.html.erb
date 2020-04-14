@@ -10,4 +10,6 @@
     <%= @user.email %><br /><br />
 <label>Scheduled Trips:</label>
     <%= @user.trip_count %><br /> <%# driver_trips and passenger_trips %>
-    
+<br />
+
+<%= link_to "Update Profile", edit_user_path(@user) %>

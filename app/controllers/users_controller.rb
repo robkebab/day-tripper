@@ -2,14 +2,17 @@ class UsersController < ApplicationController
     before_action :hard_code_session
     before_action :find_user, only: [:home, :show, :edit, :update]
 
-    def new
-        @user = User.new
-    end
-
     def home
     end
 
     def show #profile
+    end
+
+    def new
+        @user = User.new
+    end
+
+    def edit
     end
 
     def create
@@ -24,6 +27,13 @@ class UsersController < ApplicationController
             # flash.now[:notice] = "You suck"
             render "new"
         end
+    end
+
+    def update
+    end
+
+    def destroy
+
     end
 
     private
