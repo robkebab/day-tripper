@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :locations
 
   #users
+  get '/home', to: 'users#home'
   get '/signup', to: 'users#new', as: 'signup'
   resources :users, except: [:new]
   

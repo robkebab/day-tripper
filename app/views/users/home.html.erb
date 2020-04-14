@@ -1,0 +1,9 @@
+<h1>Welcome <%= @user.full_name %>!</h1>
+
+<h3>Your Trips:</h3>
+
+<ul>
+<% @user.all_trips.each do |trip| %>
+    <%= trip.display %>
+<% end %>
+</ul>

@@ -6,4 +6,8 @@ class Trip < ApplicationRecord
   has_many :passengers, through: :passenger_relationships, source: :user
 
   belongs_to :location
+
+  def display
+    self.location.name + " " + '|' + " " + self.date.to_s
+  end
 end
