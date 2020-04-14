@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   get 'welcome/index'
+
+  #sessions 
+  get 'login', to: 'sessions#new', as: "login"
+  post "login", to: "sessions#create"
+  
 
   #trips
   resources :trips
