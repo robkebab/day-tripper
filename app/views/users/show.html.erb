@@ -1,0 +1,13 @@
+<h1>Your Profile</h1>
+
+<h3><%= @user.full_name %></h3>
+
+<label>##### BIO ######</label>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nunc congue nisi vitae suscipit tellus mauris a diam maecenas.</p>
+<br />
+
+<label>Email:</label>
+    <%= @user.email %><br /><br />
+<label>Scheduled Trips:</label>
+    <%= @user.trip_count %><br /> <%# driver_trips and passenger_trips %>
+    
