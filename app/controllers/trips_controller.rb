@@ -2,6 +2,7 @@ class TripsController < ApplicationController
     before_action :find_trip, except: [:index, :new, :create]
     
     def index
+        @trips = Trip.all
     end
 
     def show
