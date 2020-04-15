@@ -8,7 +8,7 @@
 
 <ul>
 <% @user.all_trips.each do |trip| %>
-    <%= trip.display %>
+    <li><%= link_to trip.display, trip_path(trip) %></li>
 <% end %>
 </ul>
 
