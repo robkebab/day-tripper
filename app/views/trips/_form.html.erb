@@ -8,6 +8,9 @@
     <%= f.label :date %><br />
     <%= f.date_field :date %><br /><br />
 
+    <%= f.label :car %><br />
+    <%= f.collection_select :car_id, @cars, :id, :make_and_model %><br /><br />
+
     <%= f.label :departure_time %><br />
     <%= f.time_field :departure_time %><br /><br />
 
