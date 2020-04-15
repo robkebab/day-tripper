@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :trips
 
   #locations
-  resources :locations
+  resources :locations, only: [:show, :index]
 
   #users
   get '/home', to: 'users#home'
