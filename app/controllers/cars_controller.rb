@@ -16,7 +16,13 @@ class CarsController < ApplicationController
     end
 
     def create
-        
+        @car = Car.new(car_params)
+        @car.user = current_user
+        if @car.save
+            redirect_to @car
+        else
+            render 'new'
+        end
     end
 
     def update
@@ -35,7 +41,7 @@ class CarsController < ApplicationController
     private
 
     def car_params
-        params.require(:car).permit(:make, :model, :year, :color, :license)
+        params.require(:car).permit(:make, :model, :year, :color, :license, :num_of_seats)
     end
 
     def find_car

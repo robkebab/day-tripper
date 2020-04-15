@@ -1,0 +1,4 @@
+<h1>Your Cars</h1>
+<% @cars.each do |car| %>
+    <%= link_to car.make_and_model, car_path(car) %><br /><br/>
+    <% end %>
