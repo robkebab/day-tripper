@@ -10,16 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_191537) do
+ActiveRecord::Schema.define(version: 2020_04_15_194151) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "cars", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "make"
+    t.string "model"
+    t.integer "year"
+    t.string "color"
+    t.string "license"
+    t.integer "num_of_seats"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_cars_on_user_id"
+  end
 
   create_table "driver_relationships", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "car_id"
+    t.index ["car_id"], name: "index_driver_relationships_on_car_id"
     t.index ["trip_id"], name: "index_driver_relationships_on_trip_id"
     t.index ["user_id"], name: "index_driver_relationships_on_user_id"
   end
@@ -61,6 +76,8 @@ ActiveRecord::Schema.define(version: 2020_04_14_191537) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "cars", "users"
+  add_foreign_key "driver_relationships", "cars"
   add_foreign_key "driver_relationships", "trips"
   add_foreign_key "driver_relationships", "users"
   add_foreign_key "passenger_relationships", "trips"

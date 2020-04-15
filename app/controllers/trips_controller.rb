@@ -1,6 +1,6 @@
 class TripsController < ApplicationController
     before_action :find_trip, except: [:index, :new, :create]
-    
+    before_action :users_cars, only: [:edit, :new]
     def index
         @trips = Trip.all
     end
@@ -16,11 +16,11 @@ class TripsController < ApplicationController
     end
 
     def create
-        @trip = Trip.new(trip_params)
-
+        @trip = Trip.new(trip_params(:location_id, :date, :description, :departure_time, :return_time))
+    
         if @trip.save
           @dr = DriverRelationship.create(trip: @trip, user: current_user)
-            #binding.pry
+            @dr.update(trip_params(:car_id))
             redirect_to @trip
         else
             render 'new'
@@ -42,8 +42,12 @@ class TripsController < ApplicationController
 
     private
 
-    def trip_params
-        params.require(:trip).permit(:location_id, :date, :description, :departure_time, :return_time)
+    def users_cars
+        @cars = current_user.cars
+    end
+
+    def trip_params(*args)
+        params.require(:trip).permit(*args)
     end
 
     def find_trip

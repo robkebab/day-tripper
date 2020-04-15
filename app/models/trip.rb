@@ -5,6 +5,7 @@ class Trip < ApplicationRecord
   has_many :passenger_relationships, dependent: :destroy
   has_many :passengers, through: :passenger_relationships, source: :user
 
+  has_many :cars, through: :driver_relationships
   belongs_to :location
 
 #================ HELPERS =======================================
@@ -16,4 +17,8 @@ class Trip < ApplicationRecord
   def organizer_full_name
     self.drivers.first.full_name
   end
+
+  # def cars
+  #   self.driver_relationships.map {|dr| dr.car }
+  # end
 end
