@@ -24,3 +24,8 @@
 <h3>Available Seats:</h3> <%# Need to add method for seats%>
 
 <%= form_with %>
+<%= link_to 'Edit Trip', edit_trip_path(@trip) %> 
+
+<%= form_with url: trip_path(@trip), method: 'delete' do |f| %>
+    <%= f.submit "Cancel Trip" %>
+    <% end %>

@@ -27,9 +27,16 @@ class TripsController < ApplicationController
     end
 
     def update
+        if @trip.update(trip_params)
+            redirect_to @trip
+        else
+            render 'edit'
+        end
     end
 
     def destroy
+        @trip.destroy
+        redirect_to home_path
     end
 
     private
