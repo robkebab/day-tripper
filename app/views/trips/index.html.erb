@@ -1,0 +1,7 @@
+<h1>All Trips</h1>
+<% @trips.each do |trip| %>
+<div>
+   <%=link_to trip.display, trip_path(trip) %> <br />
+    <label>Organizer: </label> <%= trip.organizer_full_name %><br /><br />
+</div>
+<% end %>

@@ -1,8 +1,8 @@
 class Trip < ApplicationRecord
 #================ ASSOCIATIONS =================================
-  has_many :driver_relationships
+  has_many :driver_relationships, dependent: :destroy
   has_many :drivers, through: :driver_relationships, source: :user
-  has_many :passenger_relationships
+  has_many :passenger_relationships, dependent: :destroy
   has_many :passengers, through: :passenger_relationships, source: :user
 
   belongs_to :location
@@ -11,5 +11,9 @@ class Trip < ApplicationRecord
 
   def display
     self.location.name + " " + '|' + " " + self.date.to_s
+  end
+
+  def organizer_full_name
+    self.drivers.first.full_name
   end
 end

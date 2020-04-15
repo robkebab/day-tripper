@@ -1,0 +1,31 @@
+<h1><%= @trip.location.name%></h1>
+<h3><%= @trip.date %></h3>
+
+<h3>Organizer: <%= @trip.organizer_full_name %></h3>
+<br />
+
+<h3>Trip Description:</h3>
+<p><%= @trip.description %></p>
+<br/>
+
+<h3>Drivers:</h3>
+<ul> <% @trip.drivers.each do |driver| %>
+    <li><%=driver.full_name%></li>
+<% end %> 
+</ul> <%# working on excluding organizer in Driver %>
+<br />
+
+<h3>Passengers:</h3>
+<ul> <% @trip.passengers.each do |passenger| %>
+    <li><%=passenger.full_name%></li>
+<% end %>
+</ul>
+
+<h3>Available Seats:</h3> <%# Need to add method for seats%>
+
+<%= form_with %>
+<%= link_to 'Edit Trip', edit_trip_path(@trip) %> 
+
+<%= form_with url: trip_path(@trip), method: 'delete' do |f| %>
+    <%= f.submit "Cancel Trip" %>
+    <% end %>
