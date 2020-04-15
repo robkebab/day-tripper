@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :passenger_relationships, dependent: :destroy
     has_many :passenger_trips, through: :passenger_relationships, source: :trip
 
-    has_many :cars
+    has_many :cars, dependent: :destroy
 
 #========================= Validations ==============================================
 
