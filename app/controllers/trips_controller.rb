@@ -15,11 +15,11 @@ class TripsController < ApplicationController
     end
 
     def create
-        binding.pry
         @trip = Trip.new(trip_params)
 
         if @trip.save
-            DriverRelationship.create(trip: @trip, user: current_user)
+          @dr = DriverRelationship.create(trip: @trip, user: current_user)
+            binding.pry
             redirect_to @trip
         else
             render 'new'
