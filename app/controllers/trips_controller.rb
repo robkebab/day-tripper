@@ -19,7 +19,7 @@ class TripsController < ApplicationController
 
         if @trip.save
           @dr = DriverRelationship.create(trip: @trip, user: current_user)
-            binding.pry
+            #binding.pry
             redirect_to @trip
         else
             render 'new'

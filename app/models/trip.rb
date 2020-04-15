@@ -12,4 +12,8 @@ class Trip < ApplicationRecord
   def display
     self.location.name + " " + '|' + " " + self.date.to_s
   end
+
+  def organizer_full_name
+    self.drivers.first.full_name
+  end
 end
