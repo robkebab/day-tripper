@@ -29,7 +29,8 @@
     <%= f.submit "Cancel Trip"%>
 <% end %>
 
-<h3>Available Seats:</h3> <%# Need to add method for seats%>
+<h3>Available Seats: <%= @trip.available_seats %></h3>
+
 
 <% if @current_user.is_organizer?(@trip) %>
     <%= render 'obuttons'%>

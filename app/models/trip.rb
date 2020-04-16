@@ -18,6 +18,17 @@ class Trip < ApplicationRecord
     self.drivers.first.full_name
   end
 
+  def total_seats
+    total = 0
+    self.cars.each do |car|
+     total += car.num_of_seats 
+    end
+    total
+  end
+
+  def available_seats
+    total_seats - (self.passengers.count + self.drivers.count)
+  end
   # def cars
   #   self.driver_relationships.map {|dr| dr.car }
   # end
