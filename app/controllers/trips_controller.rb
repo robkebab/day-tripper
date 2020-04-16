@@ -11,6 +11,7 @@ class TripsController < ApplicationController
     end
 
     def new
+        @current_user = current_user
         @trip = Trip.new
     end
 
