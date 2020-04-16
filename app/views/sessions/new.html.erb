@@ -5,11 +5,16 @@
 <% end %>
 
 <%= form_with url: '/login' do |f| %>
+    
+   <p>
    <%= f.label :email%><br /> 
-   <%= f.text_field :email, placeholder: "Email" %><br/><br />
+   <%= f.text_field :email, placeholder: "Email", required: true %>
+   </p>
 
+   <p>
    <%= f.label :password %><br />
-   <%= f.password_field :password, placeholder: "Password" %><br /><br />
+   <%= f.password_field :password, placeholder: "Password", required: true %>
+   </p>
 
    <%= f.submit "Login"%>
 <%end%>

@@ -1,4 +1,4 @@
-<%= button_to "Update", edit_trip_path(@trip) %> | 
+<%= button_to "Update", url: edit_trip_path(@trip), method: 'get' %> | 
 <%= form_with url: trip_path(@trip), method: "delete" do |f| %>
     <%= f.submit "Cancel Trip"%>
 <% end %>

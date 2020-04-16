@@ -17,7 +17,7 @@
 
     <p>
     <%= f.label :location %><br />
-    <%= f.collection_select :location_id, Location.all, :id, :name, prompt: true %>
+    <%= f.collection_select :location_id, Location.all, :id, :name, prompt: true%>
     </p>
 
     <p>
@@ -27,7 +27,7 @@
 
     <p>
     <%= f.label :date %><br />
-    <%= f.date_field :date %>
+    <%= f.date_field :date, required: true %>
     </p>
 
     <p>
@@ -37,12 +37,12 @@
 
     <p>
     <%= f.label :departure_time %><br />
-    <%= f.time_field :departure_time %>
+    <%= f.time_field :departure_time, required: true %>
     </p>
 
     <p>
     <%= f.label :return_time %><br />
-    <%= f.time_field :return_time %>
+    <%= f.time_field :return_time, required: true %>
     </p>
 
     <%= f.submit %>

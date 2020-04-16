@@ -16,27 +16,27 @@
     
     <p>
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, placeholder: "First Name" %>
+    <%= f.text_field :first_name, placeholder: "First Name", required: true %>
     </p>
 
     <p>
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, placeholder: "Last Name" %>
+    <%= f.text_field :last_name, placeholder: "Last Name", required: true %>
     </p>
 
     <p>
     <%= f.label :email %><br />
-    <%= f.text_field :email, placeholder: "Email" %>
+    <%= f.text_field :email, placeholder: "Email", required: true %>
     </p>
 
     <p>
     <%= f.label :password %><br />
-    <%= f.password_field :password, placeholder: "Password" %>
+    <%= f.password_field :password, placeholder: "Password", required: true %>
     </p>
 
     <p>
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %>
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", required: true %>
     </p>
 
     <%= f.submit "Create Account"%> <%# Needs to be changed to support both edit and new%>

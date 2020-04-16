@@ -31,7 +31,7 @@
 
     <p>
     <label>Number of Seats</label><br />
-    <%= f.number_field :num_of_seats, min: 0, max: 8, placeholder: "#" %>
+    <%= f.number_field :num_of_seats, min: 0, max: 8, placeholder: "#", required: true %>
     </p>
 
     <p>
@@ -41,7 +41,7 @@
 
     <p>
     <label>License Plate</label><br />
-    <%= f.text_field :license, placeholder: "Plate Number" %>
+    <%= f.text_field :license, placeholder: "Plate Number", required: true %>
     </p> <%# max 7 length%>
 
     <%= f.submit %>
