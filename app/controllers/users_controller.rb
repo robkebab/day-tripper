@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    before_action :authorize, except: [:new, :create]
     before_action :find_user, only: [:home, :show, :edit, :update, :destroy]
 
     def home
@@ -20,10 +21,9 @@ class UsersController < ApplicationController
         if @user.save
             # binding.pry
             session[:user_id] = @user.id 
-            # flash[:message] = "Successfully Created your Account" research flash messages
             redirect_to home_path
         else
-            # flash.now[:notice] = "You suck"
+            flash.now[:notice] = "Invalid Username or Password"
             render "new"
         end
     end
@@ -49,6 +49,6 @@ class UsersController < ApplicationController
     end
 
     def user_params
-        params.require(:user).permit(:first_name, :last_name, :email, :password_digest)
+        params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 end

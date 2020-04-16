@@ -1,21 +1,21 @@
 <%= form_with model: @car do |f| %>
     <%= f.label :make %><br />
-    <%= f.text_field :make %><br /><br />
+    <%= f.text_field :make, placeholder: "Make" %><br /><br />
 
     <%= f.label :model %><br />
-    <%= f.text_field :model %><br /><br />
+    <%= f.text_field :model, placeholder: "Model" %><br /><br />
 
     <%= f.label :year %><br />
-    <%= f.text_field :year %><br /><br />
+    <%= f.text_field :year, placeholder: "Year" %><br /><br />
 
-    <%= f.label "Number of Seats" %><br />
-    <%= f.number_field :num_of_seats, max: 8 %><br /><br />
+    <label>Number of Seats</label><br />
+    <%= f.number_field :num_of_seats, min: 0, max: 8, placeholder: "#" %><br /><br />
 
     <%= f.label :color %><br />
-    <%= f.text_field :color %><br /><br />
+    <%= f.text_field :color, placeholder: "Color" %><br /><br />
 
-    <%= f.label :license_plate %><br />
-    <%= f.text_field :license %><br /><br />
+    <label>License Plate</label><br />
+    <%= f.text_field :license, placeholder: "Plate Number" %><br /><br /> <%# max 7 length%>
 
-    <%= f.submit "Add Car"%>
+    <%= f.submitm%>
 <% end %>

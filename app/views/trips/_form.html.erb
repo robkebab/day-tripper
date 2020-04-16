@@ -1,9 +1,9 @@
 <%= form_with model: @trip do |f| %>
     <%= f.label :location %><br />
-    <%= f.collection_select :location_id, Location.all, :id, :name %><br /><br />
+    <%= f.collection_select :location_id, Location.all, :id, :name, prompt: true %><br /><br />
 
     <%= f.label :description %><br />
-    <%= f.text_area :description %><br /><br />
+    <%= f.text_area :description, placeholder: "Meeting point, shopping list, planned activities, etc." %><br /><br />
 
     <%= f.label :date %><br />
     <%= f.date_field :date %><br /><br />
@@ -17,5 +17,5 @@
     <%= f.label :return_time %><br />
     <%= f.time_field :return_time %><br /><br />
 
-    <%= f.submit "Create Trip" %> <%# Needs to be changed to support both edit and new%>
+    <%= f.submit %>
 <% end %>
