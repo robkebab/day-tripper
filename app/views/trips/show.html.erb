@@ -15,15 +15,20 @@
 </ul> <%# working on excluding organizer in Driver %>
 <br />
 
+<%= render 'dbuttons'%>
+
 <h3>Passengers:</h3>
 <ul> <% @trip.passengers.each do |passenger| %>
     <li><%=passenger.full_name%></li>
 <% end %>
 </ul>
 
+<% form_with url: '/add_driver', method: "post" do |f| %>
+    <%= f.submit "Cancel Trip"%>
+<% end %>
+
 <h3>Available Seats:</h3> <%# Need to add method for seats%>
 
-<%# render forms based on if the current user is the organizer %>
 <% if @current_user.is_organizer?(@trip) %>
-<%= render 'obuttons'%>
+    <%= render 'obuttons'%>
 <% end %>
