@@ -43,8 +43,21 @@ class TripsController < ApplicationController
     end
 
     def add_driver
-        DriverRelationship.create(user: current_user, trip: @trip) 
+        @dr = DriverRelationship.new(user: current_user, trip: @trip) 
+        @dr.update(trip_params(:car_id))
         redirect_to trip_path(@trip)
+    end
+
+    def destroy_passenger
+        @pr = PassengerRelationship.find_by(user: current_user, trip: @trip)
+        @pr.destroy
+        redirect_to @trip
+    end
+
+    def destroy_driver
+        @dr = DriverRelationship.find_by(user: current_user, trip: @trip)
+        @dr.destroy
+        redirect_to @trip
     end
 
     def destroy

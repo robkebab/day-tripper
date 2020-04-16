@@ -40,4 +40,8 @@ class User < ApplicationRecord
     def is_passenger?(trip)
         trip.passengers.include?(self)
     end
+
+    def has_car?
+        !self.cars.empty?
+    end
 end
