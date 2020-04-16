@@ -1,8 +1,3 @@
 <h1>Plan a Trip</h1>
 
-<% if @current_user.has_car? %>
 <%= render 'form' %>
-<% else %>
-<h2>MAKE A CAR FIRST YOU STUPID IDIOT!!</h2>
-<%= link_to "Here's a link so you can't fuck it up.", new_car_path %>
-<% end %>
