@@ -4,13 +4,13 @@
     <div class="notice"><%= flash[:notice] %></div>
 <% end %>
 
-<%= form_tag '/login' do %>
-   <%= label_tag :email%><br /> 
-   <%= text_field_tag :email %><br/><br />
+<%= form_with url: '/login' do |f| %>
+   <%= f.label :email%><br /> 
+   <%= f.text_field :email, placeholder: "Email" %><br/><br />
 
-   <%= label_tag :password %><br />
-   <%= password_field_tag :password%> <br /><br />
+   <%= f.label :password %><br />
+   <%= f.password_field :password, placeholder: "Password" %><br /><br />
 
-   <%= submit_tag "Login"%>
+   <%= f.submit "Login"%>
 <%end%>
   

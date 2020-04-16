@@ -1,15 +1,15 @@
 <%= form_with model: @trip do |f| %>
     <%= f.label :location %><br />
-    <%= f.collection_select :location_id, Location.all, :id, :name %><br /><br />
+    <%= f.collection_select :location_id, Location.all, :id, :name, prompt: true %><br /><br />
 
     <%= f.label :description %><br />
-    <%= f.text_area :description %><br /><br />
+    <%= f.text_area :description, placeholder: "Description: (include meeting point, shopping list, planned activities, etc.)" %><br /><br />
 
     <%= f.label :date %><br />
     <%= f.date_field :date %><br /><br />
 
     <%= f.label :car %><br />
-    <%= f.collection_select :car_id, @cars, :id, :make_and_model %><br /><br />
+    <%= f.collection_select :car_id, @cars, :id, :make_and_model, prompt: true %><br /><br />
 
     <%= f.label :departure_time %><br />
     <%= f.time_field :departure_time %><br /><br />
