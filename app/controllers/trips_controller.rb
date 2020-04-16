@@ -1,4 +1,5 @@
 class TripsController < ApplicationController
+    before_action :authorize
     before_action :find_trip, except: [:index, :new, :create]
     before_action :users_cars, only: [:edit, :new]
     
@@ -12,6 +13,7 @@ class TripsController < ApplicationController
 
     def new
         @trip = Trip.new
+        @user = current_user
     end
 
     def edit

@@ -1,11 +1,17 @@
 class ApplicationController < ActionController::Base
        
     def current_user
-        User.find(session[:user_id])
+        if session[:user_id]
+            User.find(session[:user_id])
+        end
     end
 
     def logged_in?
-        !!session[:user_id]
+        !!current_user
     end
+
+    def authorize
+        redirect_to root_path if !logged_in?
+    end 
 
 end

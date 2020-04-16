@@ -1,3 +1,6 @@
 <h1>Plan a Trip</h1>
-
-<%= render 'form' %>
+<% if @user.has_car? %>
+    <%= render 'form' %>
+    <% else %>
+    <h2>Please <%= link_to "add a Car", new_car_path %> to Plan Trip</h2>
+    <% end %>
