@@ -23,6 +23,8 @@
 <% end %>
 </ul>
 
+<%= render 'pbuttons'%>
+
 <% form_with url: '/add_driver', method: "post" do |f| %>
     <%= f.submit "Cancel Trip"%>
 <% end %>

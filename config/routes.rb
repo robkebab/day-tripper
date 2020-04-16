@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   #trips
   resources :trips
+  post '/trips/:id/add_passenger', to: "trips#add_passenger", as: 'add_passenger'
+  post '/trips/:id/add_driver', to: "trips#add_driver", as: 'add_driver'
 
   #locations
   resources :locations, only: [:show, :index]

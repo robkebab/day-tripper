@@ -37,6 +37,14 @@ class TripsController < ApplicationController
         end
     end
 
+    def add_passenger
+        binding.pry
+    end
+
+    def add_driver
+
+    end
+
     def destroy
         @trip.destroy
         redirect_to home_path
