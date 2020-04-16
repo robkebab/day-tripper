@@ -38,11 +38,13 @@ class TripsController < ApplicationController
     end
 
     def add_passenger
-        binding.pry
+        PassengerRelationship.create(user: current_user, trip: @trip) 
+        redirect_to trip_path(@trip)
     end
 
     def add_driver
-
+        DriverRelationship.create(user: current_user, trip: @trip) 
+        redirect_to trip_path(@trip)
     end
 
     def destroy
