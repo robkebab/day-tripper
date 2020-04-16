@@ -23,7 +23,6 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id 
             redirect_to home_path
         else
-            flash.now[:notice] = "Invalid Username or Password"
             render "new"
         end
     end
