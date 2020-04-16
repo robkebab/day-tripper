@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
    session[:user_id] = @user.id
    redirect_to home_path
     else
-      flash[:notice] = "You not on the list fam."
+      flash.now[:notice] = "Invalid Username or Password"
       render 'new'
     end
   end
