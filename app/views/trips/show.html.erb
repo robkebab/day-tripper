@@ -15,17 +15,23 @@
 </ul> <%# working on excluding organizer in Driver %>
 <br />
 
+<%= render 'dbuttons'%>
+
 <h3>Passengers:</h3>
 <ul> <% @trip.passengers.each do |passenger| %>
     <li><%=passenger.full_name%></li>
 <% end %>
 </ul>
 
-<h3>Available Seats:</h3> <%# Need to add method for seats%>
+<%= render 'pbuttons'%>
 
-<%= form_with %>
-<%= link_to 'Edit Trip', edit_trip_path(@trip) %> 
+<% form_with url: '/add_driver', method: "post" do |f| %>
+    <%= f.submit "Cancel Trip"%>
+<% end %>
 
-<%= form_with url: trip_path(@trip), method: 'delete' do |f| %>
-    <%= f.submit "Cancel Trip" %>
-    <% end %>
+<h3>Available Seats: <%= @trip.available_seats %></h3>
+
+
+<% if @current_user.is_organizer?(@trip) %>
+    <%= render 'obuttons'%>
+<% end %>

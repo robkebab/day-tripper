@@ -18,7 +18,7 @@ class User < ApplicationRecord
         self.first_name + " " + self.last_name
     end
 
-    def all_trips
+    def all_trips #refactor using AREL query methods
         trips = []
         trips << self.driver_trips
         trips << self.passenger_trips
@@ -27,5 +27,21 @@ class User < ApplicationRecord
 
     def trip_count
         all_trips.count
+    end
+
+    def is_organizer?(trip)
+        self == trip.drivers.first
+    end
+
+    def is_driver?(trip)
+        trip.drivers.include?(self)
+    end
+
+    def is_passenger?(trip)
+        trip.passengers.include?(self)
+    end
+
+    def has_car?
+        !self.cars.empty?
     end
 end

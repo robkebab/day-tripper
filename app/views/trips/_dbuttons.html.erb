@@ -1,0 +1,11 @@
+<% if !@current_user.is_driver?(@trip) && !@current_user.is_passenger?(@trip) && @current_user.has_car? %>
+<%= form_with model: @trip, url: add_driver_path(@trip), method: 'post' do |f| %>
+    <%= f.label "Select Car to Join Trip"%><br />
+    <%= f.collection_select :car_id, @current_user.cars, :id, :make_and_model %><br />
+
+    <%= f.submit "Join as a Driver"%>
+<% end %>
+
+<% elsif @current_user.is_driver?(@trip) && !@current_user.is_organizer?(@trip) %>
+<%= button_to "Leave Trip", destroy_driver_path(@trip), method: :delete %>
+<% end %>

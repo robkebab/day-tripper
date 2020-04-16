@@ -1,0 +1,6 @@
+<% if !@current_user.is_driver?(@trip) && !@current_user.is_passenger?(@trip) %>
+<%= button_to "Join as a Passenger", add_passenger_path(@trip) %>
+
+<% elsif @current_user.is_passenger?(@trip) %>
+<%= button_to "Leave Trip", destroy_passenger_path(@trip), method: :delete  %>
+<% end %>
