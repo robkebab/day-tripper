@@ -1,11 +1,13 @@
 class TripsController < ApplicationController
     before_action :find_trip, except: [:index, :new, :create]
     before_action :users_cars, only: [:edit, :new]
+    
     def index
         @trips = Trip.all
     end
 
     def show
+        @current_user = current_user
     end
 
     def new

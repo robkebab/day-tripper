@@ -24,10 +24,6 @@
 <h3>Available Seats:</h3> <%# Need to add method for seats%>
 
 <%# render forms based on if the current user is the organizer %>
-
-<%= form_with %>
-<%= link_to 'Edit Trip', edit_trip_path(@trip) %> 
-
-<%= form_with url: trip_path(@trip), method: 'delete' do |f| %>
-    <%= f.submit "Cancel Trip" %>
-    <% end %>
+<% if @current_user.is_organizer?(@trip) %>
+<%= render 'obuttons'%>
+<% end %>
