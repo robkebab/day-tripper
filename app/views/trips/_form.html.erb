@@ -1,21 +1,49 @@
 <%= form_with model: @trip do |f| %>
+
+    <% if @trip.errors.any? %>
+        <div id="error_explanation">
+         <h2>
+            <%= pluralize(@trip.errors.count, "error") %> prohibited
+            you from creating the trip:
+         </h2>
+         <ul>
+          <% @trip.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+         </ul>
+        </div>
+    <% end %>
+
+
+    <p>
     <%= f.label :location %><br />
-    <%= f.collection_select :location_id, Location.all, :id, :name, prompt: true %><br /><br />
+    <%= f.collection_select :location_id, Location.all, :id, :name, prompt: true %>
+    </p>
 
+    <p>
     <%= f.label :description %><br />
-    <%= f.text_area :description, placeholder: "Meeting point, shopping list, planned activities, etc." %><br /><br />
+    <%= f.text_area :description, placeholder: "Meeting point, shopping list, planned activities, etc." %>
+    </p>
 
+    <p>
     <%= f.label :date %><br />
-    <%= f.date_field :date %><br /><br />
+    <%= f.date_field :date %>
+    </p>
 
+    <p>
     <%= f.label :car %><br />
-    <%= f.collection_select :car_id, @cars, :id, :make_and_model %><br /><br />
+    <%= f.collection_select :car_id, @cars, :id, :make_and_model %>
+    </p>
 
+    <p>
     <%= f.label :departure_time %><br />
-    <%= f.time_field :departure_time %><br /><br />
+    <%= f.time_field :departure_time %>
+    </p>
 
+    <p>
     <%= f.label :return_time %><br />
-    <%= f.time_field :return_time %><br /><br />
+    <%= f.time_field :return_time %>
+    </p>
 
     <%= f.submit %>
 <% end %>
