@@ -9,10 +9,16 @@ class User < ApplicationRecord
 
 #========================= Validations ==============================================
 
-    validates :first_name, presence: true
-    validates :last_name, presence: true
+    validates :first_name, presence: true, length: { minimum: 2 }
+    validates :last_name, presence: true, length: { minimum: 2 }
     validates :email, presence: true, uniqueness: true
     validates :password_digest, presence: true
+    # validates :email, confirmation: true
+    # validates :email_confirmation, presence: true
+    # validates :password, length: { in: 6..20 }
+    # validates :bio, length: { maximum: 500 }
+
+#========================= Helpers ==================================================
 
     def full_name
         self.first_name + " " + self.last_name
