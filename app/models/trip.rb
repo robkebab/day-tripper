@@ -11,7 +11,7 @@ class Trip < ApplicationRecord
 #================ HELPERS =======================================
 
   def display
-    self.location.name + " " + '|' + " " + self.date.to_s
+    self.location.name + " " + '|' + " " + self.date_display
   end
 
   def organizer_full_name
@@ -32,4 +32,16 @@ class Trip < ApplicationRecord
   # def cars
   #   self.driver_relationships.map {|dr| dr.car }
   # end
+
+  def date_display
+    self.date.strftime("%A, %d %b %Y")
+  end
+
+  def d_time
+    self.departure_time.strftime("%I:%M %p")
+  end
+
+  def r_time
+    self.return_time.strftime("%I:%M %p")
+  end
 end
