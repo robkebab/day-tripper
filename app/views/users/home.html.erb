@@ -14,6 +14,9 @@
         </a>
     </div>
 
-<%= form_with url: logout_path, method: 'delete' do |f| %>
-    <%= f.submit "logout" %>
-<% end %>
+<br /><br />
+<button type="submit" class="btn btn-primary">
+    <%= form_with url: logout_path, method: 'delete' do |f| %>
+        <%= f.submit "Signout" %>
+    <% end %>
+    </button>
