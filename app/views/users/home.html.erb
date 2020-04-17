@@ -2,14 +2,14 @@
   <h1 class="display-4">Welcome, <%= @user.full_name %>!</h1>
   <p class="lead">This is your personal user page. Here, you can view your profile, view previous or add a new trip.</p>
   <hr class="my-4">
-  <a class="btn btn-primary btn-lg" href="/trips/new" role="button">Take a Trip!</a>
+  <a class="btn btn-primary btn-lg" href="/trips/new" role="button">Plan a New Trip!</a>
 </div>
 
 <h3>Your Trips:</h3>
-    <div class="list-group">
+    <div class="list-group-flush">
     <% @user.all_trips.each do |trip| %>
-        <a href="#" class="list-group-item list-group-item-action active">
-            <%= link_to trip.display, trip_path(trip) %>
+        <a href="/trips/<%=trip.id%>" class="list-group-item list-group-item-action">
+        <%=trip.display%>
             <% end %>
         </a>
     </div>
