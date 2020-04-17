@@ -28,8 +28,13 @@
             <a class="nav-link" href="/cars/new">Add a Vehicle</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/users/<%=current_user.id%>"> Edit Profile</a>
+            <a class="nav-link" href="/locations">Locations</a>
           </li>
+          <% if session[:user_id] %>
+            <li class="nav-item">
+              <a class="nav-link" href="/users/<%=current_user.id%>">Edit Profile</a>
+            </li>
+          <% end %>
         </ul>
       </div>
     </nav>    
