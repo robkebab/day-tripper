@@ -1,7 +1,8 @@
 <h1><%= @location.name %></h1>
-
-<h2>Address: <%=@location.address%></h2>
-
-
+<h4>Address: <%=@location.address%></h4>
+<br />
 <h3>About <%=@location.name%>:</h3>
 <p><%=@location.description%></p>
+
+<br />
+<%= button_to "Plan a Trip", new_trip_path, method: 'get' %><br />
