@@ -1,3 +1,7 @@
 <h1>Edit your Profile</h1>
 
 <%= render 'form' %>
+<br />
+<%= form_with url: user_path(@user), method: 'delete' do |f| %>
+    <%= f.submit "Delete Account" %>
+<% end %>
