@@ -6,29 +6,29 @@
 </div>
 
 <h3>Your Trips:</h3>
+    <div class="list-group">
+    <% @user.all_trips.each do |trip| %>
+        <a href="#" class="list-group-item list-group-item-action active">
+            <%= link_to trip.display, trip_path(trip) %>
+            <% end %>
+        </a>
+    </div>
 
-<ul>
-<% @user.all_trips.each do |trip| %>
-    <li><%= link_to trip.display, trip_path(trip) %></li>
-<% end %>
-</ul>
 
-<div class="list-group">
+<h3>Explore:</h3>
+    <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action active">
     Cras justo odio
   </a>
-  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
-  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
-  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
-  <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
-</div>
 
-<%= link_to "View your Profile", user_path(@user)%> |
-<%= link_to "Plan a new Trip", new_trip_path %> |
-<%= link_to "View All Trips", trips_path %> |
-<%= link_to "View All Locations", locations_path %> |
-<%= link_to "Add a Car", new_car_path %> 
 
+<ul>
+    <li><%= link_to "View your Profile", user_path(@user)%> |</li>
+    <li><%= link_to "Plan a new Trip", new_trip_path %> |</li>
+    <li><%= link_to "View All Trips", trips_path %> |</li>
+    <li><%= link_to "View All Locations", locations_path %> |</li>
+    <li><%= link_to "Add a Car", new_car_path %> </li>
+</ul>
 
 <%= form_with url: logout_path, method: 'delete' do |f| %>
     <%= f.submit "logout" %>
