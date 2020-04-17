@@ -1,21 +1,48 @@
 <%= form_with model: @car do |f| %>
+       
+    <% if @car.errors.any? %>
+        <div id="error_explanation">
+         <h2>
+            <%= pluralize(@car.errors.count, "error") %> prohibited
+            you from adding this car:
+         </h2>
+         <ul>
+          <% @car.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+         </ul>
+        </div>
+    <% end %>
+
+    <p>
     <%= f.label :make %><br />
-    <%= f.text_field :make %><br /><br />
+    <%= f.text_field :make, placeholder: "Make" %>
+    </p>
 
+    <p>
     <%= f.label :model %><br />
-    <%= f.text_field :model %><br /><br />
+    <%= f.text_field :model, placeholder: "Model" %>
+    </p>
 
+    <p>
     <%= f.label :year %><br />
-    <%= f.text_field :year %><br /><br />
+    <%= f.text_field :year, placeholder: "Year" %>
+    </p>
 
-    <%= f.label "Number of Seats" %><br />
-    <%= f.number_field :num_of_seats, max: 8 %><br /><br />
+    <p>
+    <label>Number of Seats</label><br />
+    <%= f.number_field :num_of_seats, min: 0, max: 8, placeholder: "#", required: true %>
+    </p>
 
+    <p>
     <%= f.label :color %><br />
-    <%= f.text_field :color %><br /><br />
+    <%= f.text_field :color, placeholder: "Color" %>
+    </p>
 
-    <%= f.label :license_plate %><br />
-    <%= f.text_field :license %><br /><br />
+    <p>
+    <label>License Plate</label><br />
+    <%= f.text_field :license, placeholder: "Plate Number", required: true %>
+    </p> <%# max 7 length%>
 
-    <%= f.submit "Add Car"%>
+    <%= f.submit %>
 <% end %>

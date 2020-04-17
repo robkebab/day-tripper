@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+    <div>
+        <p><%= flash[:notice] %>  <%# DO WE WANT THIS MESSAGE? %>
+    </div>
+<% end %>
+
 <h1>Your Profile</h1>
 
 <h3><%= @user.full_name %></h3>

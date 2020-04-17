@@ -1,18 +1,43 @@
 <%= form_with model: @user do |f| %>
+    
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> prohibited
+        you from sigining up:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+    
+    <p>
     <%= f.label :first_name %><br />
-    <%= f.text_field :first_name, placeholder: "First Name" %><br /><br />
+    <%= f.text_field :first_name, placeholder: "First Name", required: true %>
+    </p>
 
+    <p>
     <%= f.label :last_name %><br />
-    <%= f.text_field :last_name, placeholder: "Last Name" %><br /><br />
+    <%= f.text_field :last_name, placeholder: "Last Name", required: true %>
+    </p>
 
+    <p>
     <%= f.label :email %><br />
-    <%= f.text_field :email, placeholder: "Email" %><br /><br />
+    <%= f.text_field :email, placeholder: "Email", required: true %>
+    </p>
 
+    <p>
     <%= f.label :password %><br />
-    <%= f.password_field :password, placeholder: "Password" %><br /><br />
+    <%= f.password_field :password, placeholder: "Password", required: true %>
+    </p>
 
+    <p>
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, placeholder: "Confirm Password" %><br /><br />
+    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", required: true %>
+    </p>
 
     <%= f.submit "Create Account"%> <%# Needs to be changed to support both edit and new%>
 <% end %>

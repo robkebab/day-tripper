@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-       
+    
     def current_user
         if session[:user_id]
             User.find(session[:user_id])
@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize
-        redirect_to root_path if !logged_in?
+        redirect_to '/welcome/index' if !logged_in?
     end 
 
 end
