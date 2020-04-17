@@ -1,5 +1,14 @@
 <h1><%= @trip.location.name%></h1>
-<p><%= @trip.date_display %></p>
+<h5><%= @trip.date_display %></h5>
+
+<br />
+<label>Departure Time:</label>
+<%= @trip.d_time %>
+<br />
+<label>Return Time:</label>
+<%= @trip.r_time %>
+<br /><br />
+
 <p>Available Seats: <%= @trip.available_seats %></p>
 
 <h4>Organizer: <%= @trip.organizer_full_name %></h4>

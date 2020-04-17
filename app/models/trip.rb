@@ -36,4 +36,12 @@ class Trip < ApplicationRecord
   def date_display
     self.date.strftime("%A, %d %b %Y")
   end
+
+  def d_time
+    self.departure_time.strftime("%I:%M %p")
+  end
+
+  def r_time
+    self.return_time.strftime("%I:%M %p")
+  end
 end
