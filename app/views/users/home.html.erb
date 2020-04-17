@@ -29,7 +29,3 @@
     <li><%= link_to "View All Locations", locations_path %> |</li>
     <li><%= link_to "Add a Car", new_car_path %> </li>
 </ul>
-
-<%= form_with url: logout_path, method: 'delete' do |f| %>
-    <%= f.submit "logout" %>
-<% end %>
