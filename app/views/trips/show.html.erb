@@ -1,14 +1,15 @@
 <h1><%= @trip.location.name%></h1>
-<h3><%= @trip.date %></h3>
+<p><%= @trip.date_display %></p>
+<p>Available Seats: <%= @trip.available_seats %></p>
 
-<h3>Organizer: <%= @trip.organizer_full_name %></h3>
+<h4>Organizer: <%= @trip.organizer_full_name %></h4>
 <br />
 
-<h3>Trip Description:</h3>
+<h4>Trip Description:</h4>
 <p><%= @trip.description %></p>
 <br/>
 
-<h3>Drivers:</h3>
+<h4>Drivers:</h4>
 <ul> <% @trip.drivers.each do |driver| %>
     <li><%=driver.full_name%></li>
 <% end %> 
@@ -16,8 +17,9 @@
 <br />
 
 <%= render 'dbuttons'%>
+<br />
 
-<h3>Passengers:</h3>
+<h4>Passengers:</h4>
 <ul> <% @trip.passengers.each do |passenger| %>
     <li><%=passenger.full_name%></li>
 <% end %>
@@ -28,8 +30,6 @@
 <% form_with url: '/add_driver', method: "post" do |f| %>
     <%= f.submit "Cancel Trip"%>
 <% end %>
-
-<h3>Available Seats: <%= @trip.available_seats %></h3>
 
 
 <% if @current_user.is_organizer?(@trip) %>
