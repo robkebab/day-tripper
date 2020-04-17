@@ -18,9 +18,7 @@
     <%= @user.trip_count %><br /> <%# driver_trips and passenger_trips %>
 <br />
 
-<%= link_to "Update Profile", edit_user_path(@user) %>
+<%= button_to "Update Profile", edit_user_path(@user), method: 'get' %>
 <br /><br />
 
-<%= form_with url: logout_path, method: 'delete' do |f| %>
-    <%= f.submit "logout" %>
-<% end %>
+<%= button_to "Logout", logout_path, method: 'delete' %>
