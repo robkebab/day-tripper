@@ -1,13 +1,9 @@
-<h1>Welcome <%= @user.full_name %>!</h1>
-
-<%= link_to "View your Profile", user_path(@user)%> |
-<%= link_to "Plan a new Trip", new_trip_path %> |
-<%= link_to "View All Trips", trips_path %> |
-<%= link_to "View All Locations", locations_path %> |
-<%= link_to "Add a Car", new_car_path %> 
-
-
-
+<div class="jumbotron">
+  <h1 class="display-4">Welcome, <%= @user.full_name %>!</h1>
+  <p class="lead">This is your personal user page. Here, you can view your profile, view previous or add a new trip.</p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="/trips/new" role="button">Take a Trip!</a>
+</div>
 
 <h3>Your Trips:</h3>
 
@@ -16,6 +12,23 @@
     <li><%= link_to trip.display, trip_path(trip) %></li>
 <% end %>
 </ul>
+
+<div class="list-group">
+  <a href="#" class="list-group-item list-group-item-action active">
+    Cras justo odio
+  </a>
+  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+  <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+  <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+  <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a>
+</div>
+
+<%= link_to "View your Profile", user_path(@user)%> |
+<%= link_to "Plan a new Trip", new_trip_path %> |
+<%= link_to "View All Trips", trips_path %> |
+<%= link_to "View All Locations", locations_path %> |
+<%= link_to "Add a Car", new_car_path %> 
+
 
 <%= form_with url: logout_path, method: 'delete' do |f| %>
     <%= f.submit "logout" %>
