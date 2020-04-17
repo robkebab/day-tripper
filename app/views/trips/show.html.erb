@@ -1,6 +1,10 @@
 <h1><%= @trip.location.name%></h1>
 <h5><%= @trip.date_display %></h5>
 
+<% if @current_user.is_organizer?(@trip) %>
+    <%= render 'obuttons'%>
+<% end %>
+<br />
 <br />
 <label>Departure Time:</label>
 <%= @trip.d_time %>
@@ -36,11 +40,3 @@
 
 <%= render 'pbuttons'%>
 
-<% form_with url: '/add_driver', method: "post" do |f| %>
-    <%= f.submit "Cancel Trip"%>
-<% end %>
-
-
-<% if @current_user.is_organizer?(@trip) %>
-    <%= render 'obuttons'%>
-<% end %>
